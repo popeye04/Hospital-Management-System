@@ -1,0 +1,15 @@
+<?php
+// Database connection for your "hms" database
+$host = 'localhost';
+$db   = 'hms';        // ← changed to your actual database name
+$user = 'root';
+$pass = '';           // default XAMPP password is empty
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+} catch(PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
+?>
